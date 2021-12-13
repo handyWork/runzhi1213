@@ -15,36 +15,23 @@
         </div>
         <ul class="case-item">
 <!--            动态展示图片信息位置-->
-<!--          <li-->
-<!--            v-for="(item,index) in caseList"-->
-<!--            :key="index"-->
-<!--            v-lazy:background-image="imgserver + item.Img"-->
-<!--          >-->
-
-<!--&lt;!&ndash;            图片点击时跳转&ndash;&gt;-->
-<!--&lt;!&ndash;            <router-link&ndash;&gt;-->
-<!--&lt;!&ndash;              class="text-decoration"&ndash;&gt;-->
-<!--&lt;!&ndash;              :to="{ name: 'casedetails', params: { id: item.Id }}"&ndash;&gt;-->
-<!--&lt;!&ndash;            >&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="case-item-hover">&ndash;&gt;-->
-<!--&lt;!&ndash;                <p class="hover-title">{{item.Title}}</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="bottom"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="more">&ndash;&gt;-->
-<!--&lt;!&ndash;                  <span>MORE</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </router-link>&ndash;&gt;-->
-<!--          </li>-->
-          <li class="item">
+          <!-- <li class="item">
             <img :src="require('../assets/img/toplogo.png')">
+          </li> -->
+          <li v-for="(item,index)  in caseList" :key="index" v-lazy:background-image= item>
+            <!-- todo  路由地址什么 -->
+              <router-link class="text-decoration" :to="{ name: 'casedetails', params: { id: item.Id }}">
+              <div class="case-item-hover">
+                <p class="hover-title">进行测试的信息</p>
+                <div class="bottom"></div>
+                <div class="more">
+                  <span>MORE</span>
+                </div>
+              </div>
+            </router-link>
+
           </li>
-          <li class="item" data-v-fae5bece="" data-src="http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg" lazy="loaded" style="background-image: url(&quot;http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg&quot;);"></li>
-          <li class="item" data-v-fae5bece="" data-src="http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg" lazy="loaded" style="background-image: url(&quot;http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg&quot;);"></li>
-          <li class="item" data-v-fae5bece="" data-src="http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg" lazy="loaded" style="background-image: url(&quot;http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg&quot;);"></li>
-          <li data-v-fae5bece="" data-src="http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg" lazy="loaded" style="background-image: url(&quot;http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg&quot;);"></li>
-          <li data-v-fae5bece="" data-src="http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg" lazy="loaded" style="background-image: url(&quot;http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg&quot;);"></li>
-          <li data-v-fae5bece="" data-src="http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg" lazy="loaded" style="background-image: url(&quot;http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg&quot;);"></li>
-          <li data-v-fae5bece="" data-src="http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg" lazy="loaded" style="background-image: url(&quot;http://shkjgw.shkjem.com//imagestore/2020/0605/439332ec-11c0-440c-8800-d94b0479c22c.jpg&quot;);"></li>
+        
         </ul>
       </swiper-slide>
       <swiper-slide class="swiper-slide slide-three">
@@ -90,7 +77,7 @@ export default {
   data() {
     return {
       loading: true,
-      caseList: [],
+      caseList: [require('../assets/memory/2.jpg'),require('../assets/memory/4.jpg'),require('../assets/memory/3.jpg'),require('../assets/memory/3.jpg'),require('../assets/memory/1.jpg'),require('../assets/memory/5.jpg'),require('../assets/memory/6.jpg'),require('../assets/memory/7.jpg'),require('../assets/memory/8.jpg')],
       newsList: [],
       swiperOption: {
         notNextTick: true, //notNextTick是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true
@@ -123,7 +110,7 @@ export default {
           //     this.list = this.list.concat(newList);
           //   }
           // }
-          
+
         }
       }
     };
@@ -143,7 +130,7 @@ export default {
       ])
       .then(
         this.$http.spread((responseCases, responseNews) => {
-          this.caseList = responseCases.data;
+          // this.caseList = responseCases.data;
           this.newsList = responseNews.data;
           this.loading = false;
         })
