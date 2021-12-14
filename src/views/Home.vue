@@ -250,7 +250,8 @@ export default {
 //   background: seashell;
 // }
 .slide-one {
-  background: url(../assets/img/home_top.jpg) no-repeat center;
+  //background: url(../assets/img/home_top.jpg) no-repeat center;
+  background: url(../assets/memory/2.jpg) no-repeat center;
   background-size: cover;
 }
 .slide-two {

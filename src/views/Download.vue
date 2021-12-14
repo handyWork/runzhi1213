@@ -13,6 +13,7 @@
         <div class="swiper-button-prev" slot="button-prev"></div>
       </swiper>
     </div>
+    <div class="test">sjdfajl</div>
   </div>
 
 
@@ -49,4 +50,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.test {
+  width: 100%;
+  height: 500px;
+  background: #8c939d;
+}
 </style>
